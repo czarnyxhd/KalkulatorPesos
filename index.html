@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PLN to ARS Currency Converter</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+    <h1>PLN na ARS</h1>
+        <form id="currency-form">
+            <div class="input-group">
+                <label class="Kwota" for="amount"> <h2>Kwota PLN: </h2></label> <br>
+                <input type="number" id="amount" required>
+            </div>
+            <div class="result">
+                <h2>ARS$ <span id="result"></span></h2>
+            </div>
+            <button type="button" onclick="convertCurrency()">Konwertuj</button>
+        </form>
+    </main>
+
+    <script>
+        function convertCurrency() {
+            const amountInput = document.getElementById("amount");
+            const resultSpan = document.getElementById("result");
+
+            const plnAmount = parseFloat(amountInput.value);
+
+            // Hardcoded exchange rate (replace with the current rate)
+            const exchangeRatePLNtoARS = 70.58;
+
+            if (!isNaN(plnAmount)) {
+                const arsAmount = plnAmount * exchangeRatePLNtoARS;
+                resultSpan.textContent = arsAmount.toFixed(2);
+            } else {
+                resultSpan.textContent = "No value.";
+            }
+        }
+    </script>
+</body>
+</html>
